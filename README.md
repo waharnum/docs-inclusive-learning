@@ -32,5 +32,18 @@ docpad deploy-ghpages --env static
 # Generating a Static version
 To create a static version of the site, run: `docpad generate --env static`. This will generate a version in the `./out/` directory which you can then view locally or upload to a web server.
 
+# Build a Docker container
+```
+docpad generate --env static
+docker build -t aharnum/ildh-docker .
+```
+
+# Run the Docker container
+```
+docker run --name ildh -d -p 9778:80 aharnum/ildh-docker
+```
+
+Visit `http://{docker_host_ip}:9778` to see the site running in a container
+
 # License Information
 The Inclusive Learning Design Handbook is licensed under Creative Commons Attribution 2.5 Canada- http://creativecommons.org/licenses/by/2.5/ca/
